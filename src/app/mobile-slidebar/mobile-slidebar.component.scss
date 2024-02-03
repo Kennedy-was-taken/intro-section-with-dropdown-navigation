@@ -23,14 +23,40 @@ main{
     display: flex;
     flex-direction: column;
 }
+
 button{
     display: flex;
     justify-content: left;
     background-color: transparent;
-    @include font_style(4vw, 500, var(--Medium_Gray));
+    @include font_style(3.5vw, 500, var(--Medium_Gray));
     border: 0px transparent;
     height: 6vh;
 }
+
+.drop-down > button > img{
+    margin-top: 0.5vh;
+    margin-left: 3.5vw;
+}
+
+.options{
+    display: flex;
+    flex-direction: column;
+    padding-left: 8vw;
+}
+
+p{
+    display: flex;
+    align-items: center;
+    @include font_style(3.5vw, 500, var(--Medium_Gray));
+    margin-top: 0px;
+    margin-bottom: 3.5vh;
+}
+
+.drop-down:nth-child(1) > .options > p{
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+
 
 .button-container{
     display: flex;
@@ -45,7 +71,7 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3.5vw;
+    font-size: 3.2vw;
 }
 
 
