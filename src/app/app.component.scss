@@ -1,0 +1,129 @@
+@import './styles/fonts.scss';
+
+main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;    
+}
+
+span{
+    @include font_style(7vw, 700, var(--Almost_Black));
+    margin-left: 4vw;
+}
+
+.topbar-container{
+    display: flex;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    margin-top: 4vh;
+}
+
+img{
+    width: 100%;
+}
+
+.menu{
+    margin-right: 0;
+    margin-left: auto;
+    width: 7vw;
+}
+
+.logo{
+    width: 15vw;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    width: 100%;
+    margin-top: 5vh;
+}
+
+// global <p> properties
+p{
+    @include font_style(9.5vw, 700, var(--Almost_Black));
+    margin-left: 4vw;
+    margin-right: 4vw;
+}
+
+section > header > p{
+    margin-bottom: 2.5vh;
+}
+
+section > p{
+    @include font_style(4.4vw, 500, var(--Medium_Gray));
+    margin-top: 0px;
+    text-align: center;
+    line-height: 3.5vh;
+}
+
+button{
+    border-radius: 3vw;
+    background-color: var(--Almost_Black);
+    @include font_style(3vw, 500, var(--Almost_White));
+    height: 5.5vh;
+    width: 28vw;
+    border: 1px solid black;
+    margin-bottom: 5vh;
+}
+
+.brands{
+    display: flex;
+    margin-bottom: 3vh;
+    justify-content: center;
+}
+
+.brands img{  
+    margin-right: 6vw;  
+    height: 2.5vh;
+}
+
+.brands img:last-child{  
+    margin-right: 0;
+}
+
+.attribution {
+    @include font_style(2vw, 500, var(--Medium_Gray)); 
+    text-align: center; 
+}
+    
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+app-mobile-slidebar{
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 60%;
+    height: 100%;
+    box-shadow: -3px 0px 2px hsl(0, 0%, 42%);
+}
+
+@media (min-width : 481px){
+
+    .topbar-container .menu{
+        display: none;
+    }
+
+    .logo{
+        width: 8vw;
+    }
+
+    .attribution {
+        @include font_style(1vw, 500, var(--Medium_Gray)); 
+    }
+    
+}
+
+@media (min-width : 900px) {
+ 
+    .logo{
+        width: 6vw;
+    }
+
+}
+
+

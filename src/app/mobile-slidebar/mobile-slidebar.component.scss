@@ -1,0 +1,54 @@
+@import '../styles/fonts.scss';
+
+main{
+    display: flex;
+    flex-direction: column;
+    padding: 3vh 4vw;
+    background-color: var(--Almost_White);
+    height: 100%;
+}
+
+.close-container{
+    height: 3vh;
+    display: flex;
+    justify-content: right;
+    margin-bottom: 5vh;
+}
+
+.close-container > img{
+    height: 100%;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+}
+button{
+    display: flex;
+    justify-content: left;
+    background-color: transparent;
+    @include font_style(4vw, 500, var(--Medium_Gray));
+    border: 0px transparent;
+    height: 6vh;
+}
+
+.button-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login, .register{
+    margin-bottom: 1vh;
+    background-color: transparent;
+    border-radius: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5vw;
+}
+
+
+.register{
+    border: 1px solid var(--Medium_Gray);
+}

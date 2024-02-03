@@ -38,6 +38,8 @@ Users should be able to:
 - Flexbox
 - Mobile-first workflow
 - @media
+- FontAwesome : regular
+- FontAwesome : solid
 
 ## Author
 

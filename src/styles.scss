@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+
+:root{
+    --Almost_White: hsl(0, 0%, 98%);
+    --Medium_Gray: hsl(0, 0%, 41%);
+    --Almost_Black: hsl(0, 0%, 8%);
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    margin: 0;
+}
