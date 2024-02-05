@@ -92,14 +92,14 @@ button{
     color: hsl(228, 45%, 44%); 
 }
 
-app-mobile-slidebar{
+.side-bar{
     z-index: 1;
     position: absolute;
-    right: 0;
+    right:0;
     top: 0;
-    width: 60%;
     height: 100%;
     box-shadow: -3px 0px 2px hsl(0, 0%, 42%);
+    background-color: white;
 }
 
 @media (min-width : 481px){

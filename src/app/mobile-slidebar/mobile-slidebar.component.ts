@@ -6,6 +6,7 @@ import { PopupsService } from '../services/popups.service';
   templateUrl: './mobile-slidebar.component.html',
   styleUrl: './mobile-slidebar.component.scss'
 })
+
 export class MobileSlidebarComponent {
 
   constructor(private popup : PopupsService){}

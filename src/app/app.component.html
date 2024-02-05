@@ -1,6 +1,6 @@
 
 <!-- background -->
-<main>
+<main >
   
   <div class="topbar-container">
 
@@ -8,7 +8,9 @@
     <img class="logo" src="../assets/images/logo.svg" alt="logo"/>
 
     <!-- menu -->
-    <img class="menu" src="../assets/images/icon-menu.svg" alt="menu"/>
+    <!-- click button, opens side menu -->
+    <!-- click outside button, close menu -->
+    <img (click)="openSideMenu()" appClickOutside (clickOutside)="clickedOutside()" class="menu" src="../assets/images/icon-menu.svg" alt="menu"/>
 
   </div>
 
@@ -47,6 +49,6 @@
 </main>
 
 <!-- side bar -->
-<section class="side-bar" *ngIf="getSideMenu()">
+<div class="side-bar" [@slideInOut]="getSideMenu() ? 'out' : 'in'">
   <app-mobile-slidebar></app-mobile-slidebar>
-</section>
+</div>

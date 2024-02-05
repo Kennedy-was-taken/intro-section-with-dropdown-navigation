@@ -25,7 +25,7 @@ export class PopupsService {
 
   // sets the Company value
   public setCompanyValue(value : boolean) : void{
-    this.isFeatureClicked = value;
+    this.isCompanyClicked = value;
   }
 
   // gets the sidebars value
