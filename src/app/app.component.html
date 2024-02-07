@@ -10,7 +10,7 @@
     <!-- menu -->
     <!-- click button, opens side menu -->
     <!-- click outside button, close menu -->
-    <img (click)="openSideMenu()" appClickOutside (clickOutside)="clickedOutside()" class="menu" src="../assets/images/icon-menu.svg" alt="menu"/>
+    <img (click)="setOpenSideMenu()" class="menu" src="../assets/images/icon-menu.svg" alt="menu"/>
 
   </div>
 
@@ -49,6 +49,6 @@
 </main>
 
 <!-- side bar -->
-<div class="side-bar" [@slideInOut]="getSideMenu() ? 'out' : 'in'">
+<div class="side-bar" [@slideInOut]="getSideMenu() ? 'out' : 'in'" appClickOutside (clickOutside)="clickedOutside()">
   <app-mobile-slidebar></app-mobile-slidebar>
 </div>

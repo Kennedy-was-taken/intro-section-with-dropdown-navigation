@@ -38,14 +38,16 @@ export class AppComponent {
 
   constructor(private popup : PopupsService){}
 
-  public isSideBarVisible : boolean = this.popup.getSideBarVisible();
+  public isSideBarVisible : boolean = false;
 
   private isFeatureClicked : boolean = false;
 
   private isCompanyClicked : boolean = false;
 
+  private isSidebarInUse = false;
+
   // sets the isSideBarVisible value
-  public openSideMenu() : void{
+  public setOpenSideMenu() : void{
     this.popup.setSideBarVisible(!this.isSideBarVisible);
     this.isSideBarVisible = this.popup.getSideBarVisible();
   }
@@ -60,6 +62,11 @@ export class AppComponent {
   public setclickedCompany() : void{
     this.popup.setCompanyValue(!this.isCompanyClicked);
     this.isCompanyClicked = this.popup.getCompanyValue();
+  }
+
+  // sets the isIsSidebarInUse value
+  public setIsSidebarInUse() : void{
+    this.isSidebarInUse = !this.isSidebarInUse;
   }
 
   // gets the isSideBarVisible value
@@ -77,11 +84,34 @@ export class AppComponent {
     return this.isCompanyClicked;
   }
 
+  // gets the isIsSidebarInUse value
+  public getIsSidebarInUse() : boolean{
+    return this.isSidebarInUse;
+  }
+
   // all drop downs and sidebar closes
   clickedOutside(): void {
-    this.isCompanyClicked = false;
-    this.isFeatureClicked = false;
-    this.isSideBarVisible = false;
+    //checks to see if the side bar is open
+    if(this.getSideMenu() === true){
+      
+      //if the sideBar is not in use, closes sidebar
+      if(!this.getIsSidebarInUse() === false){
+        this.isCompanyClicked = false;
+        this.isFeatureClicked = false;
+        this.setIsSidebarInUse();
+        this.setOpenSideMenu();
+      }
+      else{
+        this.setIsSidebarInUse();
+        console.log('sidebar in use');
+      }
+      
+    }
+    //if all is already closed, do nothing
+    else{
+      console.log("not active, so no need to close");
+    }
+    
   }
 
 }

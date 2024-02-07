@@ -42,5 +42,11 @@ export class PopupsService {
   public getCompanyValue() : boolean{
     return this.isCompanyClicked;
   }
+
+  // Default values
+  public restoreDefaultValues(): void {
+    this.isCompanyClicked = false;
+    this.isFeatureClicked = false;
+  }
   
 }
