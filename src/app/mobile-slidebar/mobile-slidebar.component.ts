@@ -10,25 +10,12 @@ import { animate, trigger, state, transition, style } from '@angular/animations'
     trigger('slideInOut', [
 
       state('out', style({
-        wordWrap:'break-word'
+        wordWrap:'break-word',
+        overFlow: 'hidden',
       })),
 
       state('in', style({
-        display: 'none',
         height: '0px'
-      })),
-
-      transition('in => out', animate('0.6s ease')),
-      transition('out => in', animate('0.6s ease'))
-    ]),
-    trigger('p', [
-
-      state('out', style({
-        display: 'flex'
-      })),
-
-      state('in', style({
-        display: 'none'
       })),
 
       transition('in => out', animate('0.6s ease')),
