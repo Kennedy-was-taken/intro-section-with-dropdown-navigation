@@ -136,3 +136,8 @@ li{
 .register{
     border: 1px solid var(--Medium_Gray);
 }
+
+.drop-down li:active{
+    scale: (1.1);
+    transition: 0.5s ease-in-out;
+}
