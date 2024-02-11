@@ -8,22 +8,27 @@ main{
     height: 100%;
 }
 
-.close-container{
-    height: 3vh;
-    display: flex;
-    justify-content: right;
-    margin-bottom: 5vh;
-    margin-left: auto;
-    margin-right: 0px;
-}
-
-.close-container > img{
-    height: 100%;
-}
-
 .main-container{
     display: flex;
     flex-direction: column;
+    margin-top: 7vh;
+}
+
+.options{
+    display: flex;
+    flex-direction: column;
+    padding-left: 1vw;
+}
+
+.options > li{
+    display: flex;
+    flex-direction: column;
+}
+
+.options > li img{
+    margin-left: 1.5vw;
+    margin-top: 0.5vh;
+    height: 60%;
 }
 
 button{
@@ -35,31 +40,81 @@ button{
     height: 6vh;
 }
 
-.drop-down > button > img{
-    margin-top: 0.5vh;
-    margin-left: 3.5vw;
-}
-
-.options{
-    display: flex;
-    flex-direction: column;
-    padding-left: 8vw;
-    position: relative;
+ul{
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 p{
+    margin-bottom: 0px;
+}
+
+p, li{
     display: flex;
-    align-items: center;
     @include font_style(3.5vw, 500, var(--Medium_Gray));
     margin-top: 0px;
+}
+
+li{
     margin-bottom: 3.5vh;
 }
 
-.drop-down:nth-child(1) > .options > p{
-    display: grid;
-    grid-template-columns: 15% 85%;
+.drop-down{
+    padding-left: 3vw;
 }
 
+.options li:first-child > .drop-down li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.options li:first-child .drop-down li > img{
+    width: 5vw;
+    margin-top: 0;
+    margin-right: 3vw;
+}
+
+.options .drop-down:nth-child(2) > li:last-child{
+    margin-bottom: 0;
+}
+
+.options .drop-down:nth-child(2) > li:first-child{
+    margin-top: 2vh;
+}
+
+.options .drop-down:nth-child(2){
+
+    li{
+
+        opacity: 0;
+        
+        @for $i from 1 through 4{
+            
+            &:nth-child(#{$i}){
+                animation-name: menulist;
+                animation-duration: 300ms;
+                animation-delay: (300ms * $i) - 300ms;
+                animation-timing-function: ease-in-out;
+                animation-fill-mode: forwards;
+            }
+            
+        }
+    }
+}
+
+@keyframes menulist {
+    0%{
+        opacity: 0;
+        transform: rotateY(-90deg) translateY(10px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: rotateY(0deg) translateY(0px);
+    }
+
+}
 
 .button-container{
     display: flex;

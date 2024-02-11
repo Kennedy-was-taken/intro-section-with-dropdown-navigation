@@ -45,8 +45,9 @@ export class PopupsService {
 
   // Default values
   public restoreDefaultValues(): void {
-    this.isCompanyClicked = false;
-    this.isFeatureClicked = false;
+    this.setCompanyValue(false);
+    this.setFeatureValue(false);
+    this.setSideBarVisible(false);
   }
   
 }

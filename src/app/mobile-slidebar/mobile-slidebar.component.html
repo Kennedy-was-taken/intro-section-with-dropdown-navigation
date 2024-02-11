@@ -1,60 +1,63 @@
 <main>
 
-    <!-- close option -->
-    <div class="close-container">
-        <img class="close" src="../../assets/images/icon-close-menu.svg" alt="close-menu"/>
-    </div>
-
     <!-- main -->
     <section class="main-container" appClickOutside (clickOutside)="clickedOutside()">
 
+      <!-- list of options -->
+      <ul class="options">
+
         <!-- features -->
-        <section class="drop-down">
-            <button type="button" (click)="setclickedFeature()">
-                Features
-                <img src="../../assets/images/icon-arrow-down.svg" alt="arrow-down"/>
-            </button>
+        <li (click)="setclickedFeature()">
 
-            <!-- lists -->
-            <div class="options" [@slideInOut]="getFeatureClicked() ? 'out' : 'in'">
-                <p>
-                    <img src="../../assets/images/icon-todo.svg" alt=""/> Todo List
-                </p>
-                <p>
-                    <img src="../../assets/images/icon-calendar.svg" alt=""/> Calender
-                </p>
-                <p>
-                    <img src="../../assets/images/icon-reminders.svg" alt=""/> Reminders
-                </p>
-                <p>
-                    <img src="../../assets/images/icon-planning.svg" alt=""/> Planning
-                </p>
-            </div>
+            <p>
+                Features 
+                <img src="../../assets/images/icon-arrow-down.svg" alt="arrow-down" />
+            </p>
 
-        </section>
+            <ul class="drop-down" *ngIf="getFeatureClicked()">
+                <li>
+                    <img src="../../assets/images/icon-todo.svg" alt="icon-todo" /> Todo List
+                </li>
+                <li>
+                    <img src="../../assets/images/icon-calendar.svg" alt="icon-calendar" /> Calender
+                </li>
+                <li>
+                    <img src="../../assets/images/icon-reminders.svg" alt="icon-reminders" /> Reminders
+                </li>
+                <li>
+                    <img src="../../assets/images/icon-planning.svg" alt="icon-planning" /> Planning
+                </li>
+            </ul>
+        </li>
 
         <!-- Company -->
-        <section class="drop-down">
-            
-            <button type="button" (click)="setclickedCompany()">
+        <li (click)="setclickedCompany()">
+
+            <p>
                 Company
                 <img src="../../assets/images/icon-arrow-down.svg" alt="arrow-down"/>
-            </button>
+            </p>
 
-            <!-- lists -->
-            <div class="options" [@slideInOut]="getCompanyClicked() ? 'out' : 'in'">
-                <p>History</p>
-                <p>Our Team</p>
-                <p>Blog</p>
-            </div>
-
-        </section>
+            <ul class="drop-down" *ngIf="getCompanyClicked()">
+                <li>
+                    History
+                </li>
+                <li>
+                    Our Team
+                </li>
+                <li>
+                    Blog
+                </li>
+            </ul>
+        </li>
 
         <!-- careers -->
-        <button type="button">Careers</button>
+        <li>Careers</li>
 
         <!-- about -->
-        <button type="button">About</button>
+        <li>About</li>
+
+      </ul>
     </section>
 
     <!-- button container -->

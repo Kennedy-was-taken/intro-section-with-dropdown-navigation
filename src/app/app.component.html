@@ -51,4 +51,12 @@
 <!-- side bar -->
 <div class="side-bar" [@slideInOut]="getSideMenu() ? 'out' : 'in'" appClickOutside (clickOutside)="clickedOutside()">
   <app-mobile-slidebar></app-mobile-slidebar>
+
+  <!-- close option -->
+  <div class="close-container">
+    <img class="close" src="../assets/images/icon-close-menu.svg" alt="close-menu" (click)="clickedOutside()" />
+  </div>
 </div>
+
+<!-- dark layer -->
+<div class="darker" [@darken]="getSideMenu() ? 'cover' : 'remove'"></div>

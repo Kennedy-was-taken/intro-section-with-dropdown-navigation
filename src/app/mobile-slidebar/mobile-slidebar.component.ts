@@ -11,15 +11,15 @@ import { animate, trigger, state, transition, style } from '@angular/animations'
 
       state('out', style({
         wordWrap:'break-word',
-        overFlow: 'hidden',
+        overFlow: 'hidden'
       })),
 
       state('in', style({
-        height: '0px'
+         display: "none"
       })),
 
-      transition('in => out', animate('0.6s ease')),
-      transition('out => in', animate('0.6s ease'))
+      transition('in => out', animate('500ms ease')),
+      transition('out => in', animate('800ms ease'))
     ])
   ]
 })
@@ -62,5 +62,6 @@ export class MobileSlidebarComponent {
     this.isCompanyClicked = false;
     this.isFeatureClicked = false;
     this.popup.restoreDefaultValues();
+    console.log("not active, sidebar closed");
   }
 }

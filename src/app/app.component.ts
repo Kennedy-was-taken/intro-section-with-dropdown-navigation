@@ -7,6 +7,8 @@ import { animate, trigger, state, transition, style } from '@angular/animations'
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   animations: [
+
+    // used to open or close the sidebar
     trigger('slideInOut', [
 
       state('out', style({
@@ -19,16 +21,22 @@ import { animate, trigger, state, transition, style } from '@angular/animations'
       transition('in => out', animate('0.6s ease')),
       transition('out => in', animate('0.6s ease'))
     ]),
-    trigger('darken',[
 
-      state('out', style({
-        filter: 'brightness(20%)'})),
+    // used to either darken or undarken the screen 
+    trigger('darken', [
 
-      state('in', style({
-        })),
+      state('remove', style({
+        opacity: '0',
+        display: 'none'
+      })),
 
-      transition('in => out', animate('0.6s ease')),
-      transition('out => in', animate('0.6s ease'))
+      state('cover', style({
+        opacity: '0.7',
+        display: 'block'
+      })),
+
+      transition('remove => cover', animate('0.5s ease-in-out')),
+      transition('cover => remove', animate('0.5s ease-in-out')),
     ])
   ]
 })
@@ -44,7 +52,7 @@ export class AppComponent {
 
   private isCompanyClicked : boolean = false;
 
-  private isSidebarInUse = false;
+  private isSidebarInUse = this.popup.getSideBarVisible();
 
   // sets the isSideBarVisible value
   public setOpenSideMenu() : void{
@@ -100,6 +108,7 @@ export class AppComponent {
         this.isFeatureClicked = false;
         this.setIsSidebarInUse();
         this.setOpenSideMenu();
+        console.log("not active, sidebar container closed");
       }
       else{
         this.setIsSidebarInUse();
@@ -109,7 +118,7 @@ export class AppComponent {
     }
     //if all is already closed, do nothing
     else{
-      console.log("not active, so no need to close");
+      console.log("sidebar not active, so no need to close");
     }
     
   }
