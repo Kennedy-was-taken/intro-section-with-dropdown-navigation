@@ -16,36 +16,41 @@
 
   <section class="main-container">
     
-    <img src="../assets/images/image-hero-mobile.png" alt="image"/>
+    <section class="image-container">
+      <img class="mobile" src="../assets/images/image-hero-mobile.png" alt="image-hero-mobile"/>
+      <img class="desktop" src="../assets/images/image-hero-desktop.png" alt="image-hero-desktop"/>
+    </section>
 
-    <header>
-      <p>Make remote work</p>
-    </header>
+    <section class="content-container">
+      <header>
+        <p>Make remote work</p>
+      </header>
 
-    <p>
-      Get your team in sync, no matter your location. Streamline processes, 
-      create team rituals, and watch productivity soar.
-    </p>
+      <p>
+        Get your team in sync, no matter your location. Streamline processes, 
+        create team rituals, and watch productivity soar.
+      </p>
 
-    <button type="button">
-      Learn more
-    </button>
+      <button type="button">
+        Learn more
+      </button>
 
-    <div class="brands">
+      <div class="brands">
 
-      <img src="../assets/images/client-databiz.svg" alt="databiz-icon"/>
-      <img src="../assets/images/client-audiophile.svg" alt="audiophile-icon"/>
-      <img src="../assets/images/client-meet.svg" alt="meet-icon"/>
-      <img src="../assets/images/client-maker.svg" alt="maker-icon"/>
-    </div>
+        <img src="../assets/images/client-databiz.svg" alt="databiz-icon"/>
+        <img src="../assets/images/client-audiophile.svg" alt="audiophile-icon"/>
+        <img src="../assets/images/client-meet.svg" alt="meet-icon"/>
+        <img src="../assets/images/client-maker.svg" alt="maker-icon"/>
+      </div>
+    </section>
 
   </section>
+  
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="https://github.com/Kennedy-was-taken/intro-section-with-dropdown-navigation">Tokelo</a>.
   </div>
-  
 </main>
 
 <!-- side bar -->
@@ -60,3 +65,8 @@
 
 <!-- dark layer -->
 <div class="darker" [@darken]="getSideMenu() ? 'cover' : 'remove'"></div>
+
+<!-- top bar -->
+<div class="top-bar-desktop">
+
+</div>
