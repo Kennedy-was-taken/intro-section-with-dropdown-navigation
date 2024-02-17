@@ -4,7 +4,7 @@
 }
 
 // defining mixing with three parameters
-@mixin font_style($size : 18px, $weight : 400, $color : black){
+@mixin font_style($size : 18px, $weight : 400, $color : var(--Almost_Black)){
     font-family: 'Epilogue';
     font-size: $size;
     font-weight: $weight;

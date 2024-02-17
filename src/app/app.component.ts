@@ -37,7 +37,39 @@ import { animate, trigger, state, transition, style } from '@angular/animations'
 
       transition('remove => cover', animate('0.5s ease-in-out')),
       transition('cover => remove', animate('0.5s ease-in-out')),
-    ])
+    ]),
+
+    // used to activate a drop down
+    trigger('popup', [
+
+      state('show', style({
+        display: 'block'
+      })),
+
+      state('disappear', style({
+        display: 'none'
+      })),
+
+      transition('disappear => show', animate('0.5s ease-in-out')),
+      transition('show => disappear', animate('0.5s ease-in-out')),
+
+    ]),
+
+    // used to switch drop down placement
+    trigger('switch', [
+
+      state('active', style({
+        width: '10%'
+      })),
+
+      state('off', style({
+        width: '0%'
+      })),
+
+      transition('disappear => show', animate('0.5s ease-in-out')),
+      transition('show => disappear', animate('0.5s ease-in-out')),
+
+    ]),
   ]
 })
 
@@ -46,7 +78,11 @@ export class AppComponent {
 
   constructor(private popup : PopupsService){}
 
-  public isSideBarVisible : boolean = false;
+  private isDropDownActive : boolean = false;
+
+  private isItSwitched : boolean = false;
+
+  private isSideBarVisible : boolean = false;
 
   private isFeatureClicked : boolean = false;
 
@@ -72,9 +108,19 @@ export class AppComponent {
     this.isCompanyClicked = this.popup.getCompanyValue();
   }
 
-  // sets the isIsSidebarInUse value
+  // sets the isSidebarInUse value
   public setIsSidebarInUse() : void{
     this.isSidebarInUse = !this.isSidebarInUse;
+  }
+
+  // sets the isDropDownActive value
+  public setIsDropDownActive() : void{
+    this.isDropDownActive = !this.isDropDownActive;
+  }
+
+  // sets the isItSwitched value
+  public setIsItSwitched() : void{
+    this.isItSwitched = !this.isItSwitched;
   }
 
   // gets the isSideBarVisible value
@@ -92,9 +138,19 @@ export class AppComponent {
     return this.isCompanyClicked;
   }
 
-  // gets the isIsSidebarInUse value
+  // gets the isSidebarInUse value
   public getIsSidebarInUse() : boolean{
     return this.isSidebarInUse;
+  }
+
+  // gets the isDropDownActive value
+  public getIsDropDownActive() : boolean{
+    return this.isDropDownActive;
+  }
+
+  // gets the isItSwitched value
+  public getIsItSwitched() : boolean{
+    return this.isItSwitched;
   }
 
   // all drop downs and sidebar closes
@@ -121,6 +177,27 @@ export class AppComponent {
       console.log("sidebar not active, so no need to close");
     }
     
+  }
+
+  // all drop down closes
+  public clickOutsideTopBarFeature() : void {
+    //checks to see if the top bar options is active
+    if(this.getFeatureClicked() === true){
+
+      console.log("about to close");
+      this.isFeatureClicked = false;
+    }
+  }
+
+  // drop down closes
+  public clickOutsideTopBarCompany() : void {
+    //checks to see if the top bar options is active
+    
+    if(this.getCompanyClicked() === true){
+
+      console.log("about to close");
+      this.isCompanyClicked = false;
+    }
   }
 
 }

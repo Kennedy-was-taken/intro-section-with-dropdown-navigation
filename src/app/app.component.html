@@ -23,7 +23,7 @@
 
     <section class="content-container">
       <header>
-        <p>Make remote work</p>
+        <p>Make <br/>remote work</p>
       </header>
 
       <p>
@@ -68,5 +68,63 @@
 
 <!-- top bar -->
 <div class="top-bar-desktop">
+  <nav>
+    <ul>
+        <li (click)="setclickedFeature()" appClickOutside (clickOutside)="clickOutsideTopBarFeature()">
+            Features 
+            <img [@switch]="getFeatureClicked() ? 'off' : 'active'" src="../assets/images/icon-arrow-down.svg" alt="arrow-down" />
+            <img [@switch]="getFeatureClicked() ? 'active' : 'off'" src="../assets/images/icon-arrow-up.svg" alt="arrow-up"/>
+        </li>
+        <li (click)="setclickedCompany()" appClickOutside (clickOutside)="clickOutsideTopBarCompany()">
+            Company
+            <img [@switch]="getCompanyClicked() ? 'off' : 'active'" src="../../assets/images/icon-arrow-down.svg" alt="arrow-down"/>
+            <img [@switch]="getCompanyClicked() ? 'active' : 'off'" src="../assets/images/icon-arrow-up.svg" alt="arrow-up"/>
+        </li>
+        <li>Careers</li>
+        <li>About</li>
+    </ul>
+  </nav>
 
+  <section class="button-containier">
+
+      <button type="button" class="login">Login</button>
+      <button type="button" class="register">Register</button>
+  </section>
 </div>
+
+<!-- desktop features -->
+<section class="feature_options" *ngIf="getFeatureClicked()">
+
+  <!-- list of options -->
+  <ul class="drop_down">
+    <li>
+      <img src="../../assets/images/icon-todo.svg" alt="icon-todo" /> Todo List
+    </li>
+    <li>
+      <img src="../../assets/images/icon-calendar.svg" alt="icon-calendar" /> Calender
+    </li>
+    <li>
+      <img src="../../assets/images/icon-reminders.svg" alt="icon-reminders" /> Reminders
+    </li>
+    <li>
+      <img src="../../assets/images/icon-planning.svg" alt="icon-planning" /> Planning
+    </li>
+  </ul>
+</section>
+
+<!-- desktop Company -->
+<section class="Company_options" *ngIf="getCompanyClicked()">
+
+  <!-- list of options -->
+  <ul class="drop_down">
+    <li>
+      History
+    </li>
+    <li>
+      Our Team
+    </li>
+    <li>
+      Blog
+    </li>
+  </ul>
+</section>
