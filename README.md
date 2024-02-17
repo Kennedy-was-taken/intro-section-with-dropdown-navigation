@@ -50,6 +50,13 @@ Users should be able to:
   ![mobile-side-bar-active-options](./src/assets/content-images/mobile-side-bar-active-options.PNG)
 
 #### Desktop perspective:
+  - Desktop Home page
+
+  ![desktop-home-page](./src/assets/content-images/desktop-home-page.PNG)
+
+  - Desktop topbar active option
+
+  ![desktop-top-bar-active-options](./src/assets/content-images/desktop-top-bar-active-option.PNG)
 
 ### What I learned
 

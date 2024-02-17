@@ -4,7 +4,93 @@ main{
     display: flex;
     flex-direction: column;
     width: 100%; 
-    height: 100%
+    height: 100%;
+
+    .topbar-container{
+        display: flex;
+        margin-left: 4vw;
+        margin-right: 4vw;
+        margin-top: 4vh;
+    
+        .logo{
+            width: 15vw;
+        }
+    
+        .menu{
+            margin-right: 0;
+            margin-left: auto;
+            width: 7vw;
+        }
+    }
+
+    .main-container{
+        display: flex;
+        flex-direction: column;    
+        align-items: center;
+        width: 100%;
+        margin-top: 5vh;
+
+        .image-container .desktop{
+            display: none;
+        }
+
+        .content-container{
+            display: flex;
+            flex-direction: column;    
+            align-items: center;
+
+            header > p{
+                margin-bottom: 2.5vh;
+            }
+
+            br{
+                display: none;
+            }
+
+            p{
+                @include font_style(4.4vw, 500, var(--Medium_Gray));
+                margin-top: 0px;
+                text-align: center;
+                line-height: 3.5vh;
+            }
+            
+            button{
+                border-radius: 3vw;
+                background-color: var(--Almost_Black);
+                @include font_style(3vw, 500, var(--Almost_White));
+                height: 5.5vh;
+                width: 28vw;
+                border: 1px solid black;
+                margin-bottom: 5vh;
+            }
+
+            .brands{
+                display: flex;
+                margin-bottom: 3vh;
+                justify-content: center;
+            
+                img{  
+                    margin-right: 9vw;  
+                    height: 2vh;
+                }
+            
+                img:last-child{  
+                    margin-right: 0;
+                }
+            }
+            
+        }
+
+    }
+
+    .attribution {
+        @include font_style(2vw, 500, var(--Medium_Gray)); 
+        text-align: center; 
+    
+        a { 
+            color: hsl(228, 45%, 44%); 
+        }
+    }
 }
 
 span{
@@ -12,69 +98,8 @@ span{
     margin-left: 4vw;
 }
 
-.topbar-container{
-    display: flex;
-    margin-left: 4vw;
-    margin-right: 4vw;
-    margin-top: 4vh;
-
-    .logo{
-        width: 15vw;
-    }
-
-    .menu{
-        margin-right: 0;
-        margin-left: auto;
-        width: 7vw;
-    }
-}
-
 img{
     width: 100%;
-}
-
-.main-container{
-    display: flex;
-    flex-direction: column;    
-    align-items: center;
-    width: 100%;
-    margin-top: 5vh;
-
-    .image-container .desktop{
-        display: none;
-    }
-
-    .content-container{
-        display: flex;
-        flex-direction: column;    
-        align-items: center;
-
-        header > p{
-            margin-bottom: 2.5vh;
-        }
-
-        br{
-            display: none;
-        }
-
-        p{
-            @include font_style(4.4vw, 500, var(--Medium_Gray));
-            margin-top: 0px;
-            text-align: center;
-            line-height: 3.5vh;
-        }
-        
-        button{
-            border-radius: 3vw;
-            background-color: var(--Almost_Black);
-            @include font_style(3vw, 500, var(--Almost_White));
-            height: 5.5vh;
-            width: 28vw;
-            border: 1px solid black;
-            margin-bottom: 5vh;
-        }
-    }
-
 }
 
 // global <p> properties
@@ -84,29 +109,6 @@ p{
     margin-right: 4vw;
 }
 
-.brands{
-    display: flex;
-    margin-bottom: 3vh;
-    justify-content: center;
-
-    img{  
-        margin-right: 9vw;  
-        height: 2vh;
-    }
-
-    img:last-child{  
-        margin-right: 0;
-    }
-}
-
-.attribution {
-    @include font_style(2vw, 500, var(--Medium_Gray)); 
-    text-align: center; 
-
-    a { 
-        color: hsl(228, 45%, 44%); 
-    }
-}
 
 .side-bar{
     z-index: 2;
@@ -307,6 +309,23 @@ p{
                 li:nth-child(1):hover, li:nth-child(2):hover{
                     filter: brightness(0);
                 }
+
+                li{
+        
+                    opacity: 0;
+                    
+                    @for $i from 1 through 4{
+                        
+                        &:nth-child(#{$i}){
+                            animation-name: menulist;
+                            animation-duration: 300ms;
+                            animation-delay: (300ms * $i) - 300ms;
+                            animation-timing-function: ease-in-out;
+                            animation-fill-mode: forwards;
+                        }
+                        
+                    }
+                }
             }
         }
     
@@ -367,6 +386,10 @@ p{
                 margin-bottom: 1.5vh;
                 align-items: center;
             }
+
+            li:hover{
+                cursor: pointer;
+            }
         }
 
         .drop_down li{
@@ -388,7 +411,7 @@ p{
             margin-top: 1vh;
         }
 
-        .drop-down{
+        .drop_down{
 
             li{
         
@@ -429,34 +452,57 @@ p{
     .Company_options{
         left: 26vw;
     }
+
+    @keyframes menulist {
+        0%{
+            opacity: 0;
+            transform: rotateY(-90deg) translateY(10px);
+        }
+    
+        100%{
+            opacity: 1;
+            transform: rotateY(0deg) translateY(0px);
+        }
+    
+    }
     
 }
 
 @media (min-width : 900px) {
  
+    main{
+
+        .main-container{
+
+            // placement
+            .image-container{
+                grid-area: grid2;
+                padding-right: 8vw;
+                padding-left: 9vw;
+            }
+    
+            .content-container{
+    
+                header > p{
+                    @include font_style(4.5vw, 700, var(--Almost_Black));
+                    
+                }
+            }
+    
+        }
+    
+        .attribution {
+            margin-top: 1vh;
+            @include font_style(0.8vw, 500, var(--Almost_Black));
+    
+        }
+    }
+
     .logo{
         width: 6vw;
     }
 
-    .main-container{
-
-        // placement
-        .image-container{
-            grid-area: grid2;
-            padding-right: 8vw;
-            padding-left: 9vw;
-        }
-
-        .content-container{
-
-            header > p{
-                @include font_style(6vw, 700, var(--Almost_Black));
-                
-            }
-        }
-
-    }
-
+    
     .top-bar-desktop{
         nav{
             ul{
@@ -476,61 +522,59 @@ p{
         }
     }
 
-    .attribution {
-        margin-top: 1vh;
-        @include font_style(0.8vw, 500, var(--Almost_Black));
-
-    }
-
 }
 
 @media (min-width : 1600px) {
 
-    .main-container{
+    main{
 
-        .content-container{
+        .main-container{
 
-            header > p{
-                @include font_style(4.8vw, 700, var(--Almost_Black));
-                margin-bottom: 2vh;
-            }
+            .content-container{
     
-            p{
-                @include font_style(4vw, 500, var(--Medium_Gray));
-            }
-            
-
-            p:nth-child(2){
-                @include font_style(1.1vw, 500, var(--Medium_Gray));
-                margin-right: 5vw;
-                line-height: 3vh;
-                margin-top: 3vh;
-            }
-
-            button{
-                @include font_style(1.2vw, 500, var(--Almost_White));
-                height: 6vh;
-                width: 9vw;
-                border-radius: 0.8vw;
-
-            }
-
-            .brands{
-
-                img{  
-                    margin-right: 3vw;  
-                    height: 2vh;
+                header > p{
+                    @include font_style(4.8vw, 700, var(--Almost_Black));
+                    margin-bottom: 2vh;
                 }
+        
+                p{
+                    @include font_style(4vw, 500, var(--Medium_Gray));
+                }
+                
+    
+                p:nth-child(2){
+                    @include font_style(1.1vw, 500, var(--Medium_Gray));
+                    margin-right: 5vw;
+                    line-height: 3vh;
+                    margin-top: 3vh;
+                }
+    
+                button{
+                    @include font_style(1.2vw, 500, var(--Almost_White));
+                    height: 6vh;
+                    width: 9vw;
+                    border-radius: 0.8vw;
+    
+                }
+    
+                .brands{
+    
+                    img{  
+                        margin-right: 3vw;  
+                        height: 2vh;
+                    }
+                }
+                
             }
-            
+        }
+
+        .attribution {
+            margin-top: 1vh;
+            @include font_style(0.6vw, 500, var(--Almost_Black));
+    
         }
     }
-
-    .attribution {
-        margin-top: 1vh;
-        @include font_style(0.6vw, 500, var(--Almost_Black));
-
-    }
+    
 }
 
 

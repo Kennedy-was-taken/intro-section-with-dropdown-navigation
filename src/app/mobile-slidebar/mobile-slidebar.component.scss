@@ -6,43 +6,117 @@ main{
     padding: 3vh 4vw;
     background-color: var(--Almost_White);
     height: 100%;
-}
 
-.main-container{
-    display: flex;
-    flex-direction: column;
-    margin-top: 7vh;
-}
+    .main-container{
+        display: flex;
+        flex-direction: column;
+        margin-top: 7vh;
 
-.options{
-    display: flex;
-    flex-direction: column;
-    padding-left: 1vw;
-}
+        .options{
+            display: flex;
+            flex-direction: column;
+            padding-left: 1vw;
 
-.options > li{
-    display: flex;
-    flex-direction: column;
-}
+            
+            .drop-down{
+                padding-left: 3vw;
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
 
-.options > li img{
-    margin-left: 1.5vw;
-    margin-top: 0.5vh;
-    height: 60%;
-}
+            li{
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 3.5vh;
 
-button{
-    display: flex;
-    justify-content: left;
-    background-color: transparent;
-    @include font_style(3.5vw, 500, var(--Medium_Gray));
-    border: 0px transparent;
-    height: 6vh;
-}
+                img{
+                    margin-left: 1.5vw;
+                    margin-top: 0.5vh;
+                    height: 60%;
+                }
+            }
 
-ul{
-    margin-top: 0px;
-    margin-bottom: 0px;
+            li:active{
+                scale: (1.1);
+                transition: 0.5s ease-in-out;
+            }
+            
+        }
+
+        .options li:first-child{
+            .drop-down {
+                li{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+
+                    img{
+                        width: 5vw;
+                        margin-top: 0;
+                        margin-right: 3vw;
+                    }
+                }
+            }
+        }
+        
+        .options .drop-down:nth-child(2) {
+
+            li:last-child{
+                margin-bottom: 0;
+            }
+
+            li:first-child{
+                margin-top: 2vh;
+            }
+
+            li{
+        
+                opacity: 0;
+                
+                @for $i from 1 through 4{
+                    
+                    &:nth-child(#{$i}){
+                        animation-name: menulist;
+                        animation-duration: 300ms;
+                        animation-delay: (300ms * $i) - 300ms;
+                        animation-timing-function: ease-in-out;
+                        animation-fill-mode: forwards;
+                    }
+                    
+                }
+            }
+        }
+    
+    }
+
+    .button-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        button{
+            display: flex;
+            justify-content: left;
+            background-color: transparent;
+            border: 0px transparent;
+            height: 6vh;
+            overflow: hidden;
+        }
+
+        .login, .register{
+            margin-bottom: 1vh;
+            background-color: transparent;
+            border-radius: 1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include font_style(3.5vw, 500, var(--Medium_Gray));
+        }
+        
+        .register{
+            border: 1px solid var(--Medium_Gray);
+        }
+    }
 }
 
 p{
@@ -55,53 +129,6 @@ p, li{
     margin-top: 0px;
 }
 
-li{
-    margin-bottom: 3.5vh;
-}
-
-.drop-down{
-    padding-left: 3vw;
-}
-
-.options li:first-child > .drop-down li{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.options li:first-child .drop-down li > img{
-    width: 5vw;
-    margin-top: 0;
-    margin-right: 3vw;
-}
-
-.options .drop-down:nth-child(2) > li:last-child{
-    margin-bottom: 0;
-}
-
-.options .drop-down:nth-child(2) > li:first-child{
-    margin-top: 2vh;
-}
-
-.options .drop-down:nth-child(2){
-
-    li{
-
-        opacity: 0;
-        
-        @for $i from 1 through 4{
-            
-            &:nth-child(#{$i}){
-                animation-name: menulist;
-                animation-duration: 300ms;
-                animation-delay: (300ms * $i) - 300ms;
-                animation-timing-function: ease-in-out;
-                animation-fill-mode: forwards;
-            }
-            
-        }
-    }
-}
 
 @keyframes menulist {
     0%{
@@ -114,30 +141,4 @@ li{
         transform: rotateY(0deg) translateY(0px);
     }
 
-}
-
-.button-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.login, .register{
-    margin-bottom: 1vh;
-    background-color: transparent;
-    border-radius: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3.2vw;
-}
-
-
-.register{
-    border: 1px solid var(--Medium_Gray);
-}
-
-.drop-down li:active{
-    scale: (1.1);
-    transition: 0.5s ease-in-out;
 }
