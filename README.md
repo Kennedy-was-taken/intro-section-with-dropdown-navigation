@@ -28,7 +28,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [GitHub code solution URL](https://github.com/Kennedy-was-taken/intro-section-with-dropdown-navigation)
-<!-- - Live site Url : [Vercel QR code app](https://recipe-page-roan.vercel.app) -->
+- Live site Url : [Vercel QR code app](https://intro-section-with-dropdown-navigation-lilac.vercel.app)
 
 ### Preview functions
 
